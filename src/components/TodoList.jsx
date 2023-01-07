@@ -24,9 +24,8 @@ function TodoList({ todos, updateTodo, removeTodo, completeTodo }) {
   return todos.map((todo, index) => (
     <>
       <div
-        // className={todo.isComplete ? "todo-complete" : "todo-container"}
         key={index}
-        className="flex justify-between my-5 bg-gray-300 p-2 items-center"
+        className="flex justify-between my-5 bg-gray-300 p-2 items-center shadow-lg rounded"
       >
         <div 
         className={todo.isComplete ? "line-through text-red-600" : ""}
@@ -41,7 +40,7 @@ function TodoList({ todos, updateTodo, removeTodo, completeTodo }) {
           />
         <MdOutlineEdit
             onClick={() => setEdit({ id: todo.id, value: todo.text })}
-            className="edit-icon cursor-pointer text-2xl text-blue-600"
+            className="edit-icon cursor-pointer text-2xl text-yellow-600"
           />
           <MdDelete
             onClick={() => removeTodo(todo.id)}

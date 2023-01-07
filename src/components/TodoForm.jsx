@@ -31,7 +31,7 @@ function TodoForm(props) {
             onChange={handleChange}
             name="text"
             ref={inputRef}
-            className="input input-bordered min-w-[400px]"
+            className="input input-bordered border border-blue-600 min-w-[400px]"
           />
           <button onClick={handleSubmit} className="btn btn-primary">
             Update
@@ -40,11 +40,11 @@ function TodoForm(props) {
       ) : (
         <div className="flex gap-5">
           <input
-            placeholder="Add your plan to list"
+            placeholder="Write your task..."
             value={input}
             onChange={handleChange}
             name="text"
-            className="input input-bordered min-w-[400px]"
+            className="input input-bordered border border-blue-600 min-w-[400px]"
             ref={inputRef}
           />
           <button onClick={handleSubmit} className="btn btn-primary">
