@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Lottie from "react-lottie";
+import animationData from "../src/assets/todo.json";
+
+import Todos from "./components/Todos";
 
 function App() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col justify-center items-center min-h-screen">
+      <h1 className="text-4xl uppercase"> ToDo App</h1>
+      <div className="flex justify-between gap-10 items-center">
+        <div>
+          <Lottie options={defaultOptions} height={400} width={400} />
+        </div>
+        <div className="bg-white p-5 rounded shadow-lg">
+          <Todos />
+        </div>
+      </div>
     </div>
   );
 }
