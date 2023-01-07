@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
 const Todos = () => {
   const [todos, setTodos] = useState([]);
@@ -9,6 +10,7 @@ const Todos = () => {
     const newTodos = [todo, ...todos];
     setTodos(newTodos);
     console.log(...todos);
+    
   };
 
   //function to update items once user click update button
@@ -25,20 +27,28 @@ const Todos = () => {
     setTodos(removedArr);
   };
 
+   //function to show items as completed once user click on completed task
+   const completeTodo = (id) => {
+    let updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
+
   return (
     <div>
-    <h1 className="header">Add your Plan for Today?</h1>
-
-    {/*once we display header to the webpage 
-    we will pass the function as props to TodoForm and TodoList to display the data to user*/}
+    <h1 className="text-xl mb-3">Add your Plan for Today?</h1>
 
     <TodoForm onSubmit={addTodo} />
-    {/* <TodoList
+    <TodoList
       todos={todos}
       updateTodo={updateTodo}
       removeTodo={removeTodo}
       completeTodo={completeTodo}
-    /> */}
+    />
   </div>
   );
 };
